@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Card Form</title>
+  <link rel="stylesheet" type="text/css" href="businessCard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <script src="businessCard.js" type="text/javascript" defer="defer"></script>
+</head>
+<body>
+<div class="container">
+  <!-- Sub-container -->
+    <div class="sub-container">
+      <h2>Business Card </h2>
+      <form id="businessCardForm" method="post">
+        <div class="input-container">
+          <input type="text" id="firstName" required>
+          <label for="firstName" class="placeholder-label">First Name</label>
+        </div>
+        <br>
+        
+        <div class="input-container">
+          <input type="text" id="lastName" required>
+          <label for="lastName" class="placeholder-label">Last Name</label>
+        </div>
+        <br>
+
+        <div class="input-container">
+          <input type="text" id="typeBusiness" required>
+          <label for="typeBusiness" class="placeholder-label">Type of Business</label>
+        </div>
+        <br>
+
+        <div class="input-container">
+          <input type="text" id="phoneNumber" required>
+          <label for="typeBusiness" class="placeholder-label" id="labelPhone">Phone Number</label>
+        </div>
+        <br>
+
+        <div class="input-container">
+          <input type="text" id="userEmail" required> <!-- I Should change the text to email -->
+          <label for="email" class="placeholder-label" id="labelEmail">Email</label>
+        </div>
+        <br>
+        
+        <!-- Genders  -->
+        <div class="gender" id="gender">
+          <div class="female-gender">
+          <input type="radio" id="female" name="company" required><label class="female-label"><span>Female</span></label>
+          </div>
+
+          <div class="male-gender">
+          <input type="radio" id="male" name="company" required><label class="male-label"><span>Male</span></label>
+          </div>
+        </div>
+        <br>
+        <!-- Age -->
+        <input type="date" id="date" name="date" required><br><br>
+
+        <!-- Education Selection -->
+
+        <select id="education"> <!-- Make the Select Require don't forget that-->
+          <option value="education" disabled selected>Education/degree</option>
+          <!-- <option value="12th">12th class</option>
+          <option value="11th">11th class</option>
+          <option value="10th">10th class</option>
+          <option value="9th">9th class</option> -->
+          <!-- Note: Je mets cela juste pour montrer que je le connais aussi, mais la manière la 
+            plus professionnelle est avec javascript et avec Array que je l'ai fait  -->
+        </select><br><br>
+
+        <!-- City Selection -->
+        <select id="selectCity" class="select-city">
+          <option value="City" disabled selected> Your City</option>
+          <!-- Note: j'ai ajoute des villes avec une fonction de javascript -->
+        </select><br><br>
+
+        <div class="input-container">
+          <input type="file" name="photo" id="photoInput" accept="image/*" style="display: none;">
+          <label for="photoInput" class="upload-label">
+              <span class="upload-text">Upload You Photo</span>
+          </label>
+      </div>
+      
+        <br>
+
+        <label for="address">Address:</label><br>
+        <textarea id="address" name="address" rows="4" cols="50" required></textarea><br><br>
+
+        <button class="button-container" id="buttonContainer" onclick="onchangetransition()"> 
+          <span id="slideCard"> 
+            Just slide on it
+          </span>
+          <span id="createCard">
+            create your card
+          </span>
+        </button>
+        <span id="hasBeenCreated"> You're card has been Created !</span>
+      </form>
+    </div>
+
+    <!-- Sub Container 2 -->
+    <div class="main-sub-container">
+      <div class="main-sub-container2" id="mainSubContainer2">
+
+        <!-- The card -->
+        <div class="card" id="card">
+
+          <!-- Front Side -->
+          <div class="front-side" id="frontSide">
+            <div class="frontRight" id="frontRight">
+              <div class="header-frontRight" id="headerFrontRight">
+
+              </div>
+              <h1 id="cardCity"> Orleans</h1>
+              <div class="cover-color" id="coverColor">
+                <div class="class-picture" id="id-picture">
+                  <div id="preview">
+
+                  </div>
+                </div>
+                <h1 id="cardFirstName">Muhammad Yousuf</h1>
+                <h1 id="cardAge"> Junior</h1>
+              </div>
+            </div>
+          </div>
+
+          <!-- Back Side -->
+          <div class="back-side" id="backSide">
+            <div class="backRight" id="backRight">
+              <img id='imageLogoApply' src="Logo/logo-png6.png" alt="Logo Image">
+            </div>
+            <div class="backLeft" id="backLeft">
+              <div class='backLeft-inside'><h1 id="cardBackSideName"> </h1>
+                <h3 id="cardBusinessName"> Project Manager </h3>
+                <div class="rows-backLeft" id="phoneNumber">
+                  <i class="fa-solid fa-phone"></i>
+                  <span id="cardNumber"> </span>
+                </div>
+                <div class="rows-backLeft" id="emailAddress">
+                  <i class="fa-solid fa-envelope"></i>
+                  <span style="letter-spacing: 3px;" id="cardEmail"> </span>
+                </div>
+                <div class="rows-backLeft" id="address">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span style="letter-spacing: 3px;" id="cardAddress"> </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- side Button  -->
+        <div class="side-button" id="sideButton">
+          <div class="right-side" id="rightSide">
+            <h4> Front Side</h4>
+          </div>
+          <div class="left-side" id="leftSide">
+            <h4> Front Side</h4>
+          </div>
+        </div>
+      </div>
+      <!-- file - theme -->
+      <div class="file-theme" id="fileTheme">
+        <div class="themes"></div>
+        <div class="themes"></div>
+        <div class="themes"></div>
+        <div class="themes"></div>
+        <div class="themes"></div>
+        <div class="themes"></div>
+        <div class="themes"></div>
+        <div class="themes"></div>
+        <div class="themes"></div>
+      </div>
+
+      <!-- file color -->
+      <div class="file-color" id="fileColor">
+        <div class="colors" id="color1"></div>
+        <div class="colors" id="color2"></div>
+        <div class="colors" id="color3"></div>
+        <div class="colors" id="color4"></div>
+        <div class="colors" id="color5"></div>
+        <div class="colors" id="color6"></div>
+        <div class="colors" id="color7"></div>
+        <div class="colors" id="color8"></div>
+        <div class="colors" id="color9"></div>
+        <div class="colors" id="color10"></div>
+        <div class="colors" id="color11"></div>
+        <div class="colors" id="color12"></div>
+        <div class="colors" id="color13"></div>
+        <div class="colors" id="color14"></div>
+        <div class="colors" id="color15"></div>
+      </div>
+
+      <!-- file logo  -->
+
+      <div class="file-logo" id="fileLogo">
+        <div class="logos" id="logo1"><img  class=image-logo src='logo/logo-png1.png' alt="Logo 1"></div>
+        <div class="logos"><img class=image-logo src='logo/logo-png2.png' alt="Logo 2"></div>
+        <div class="logos"><img class=image-logo src='logo/logo-png3.png' alt="Logo 3"></div>
+        <div class="logos"><img class=image-logo src='logo/logo-png4.png' alt="Logo 4"></div>
+        <div class="logos"><img class=image-logo src='logo/logo-png5.png' alt="Logo 5"></div>
+        <div class="logos"><img class=image-logo src='logo/logo-png6.png' alt="Logo 6"></div>
+        <div class="logos"><img class=image-logo src='logo/logo-png7.png' alt="Logo 7"></div>
+        <div class="logos"><img class=image-logo src='logo/logo-png8.png' alt="Logo 8"></div>
+      </div>
+    </div>
+    <!-- sub container 3 -->
+    <div class='sub-container3'>  
+      <div class="icons-part" id="iconsPart">
+        <div class="icon-card" id="iconCard"><i class="fa-regular fa-user"></i> <span> Card </span></div>
+        <div class="icon-theme" id="iconTheme"><i class="fas fa-cog"></i> <span> Theme </span></div>
+        <div class="icon-color" id="iconColor"><i class="fa-solid fa-paintbrush"></i> <span> Color</span></div>
+        <div class="icon-logo" id="iconLogo"><i class="fa-brands fa-pied-piper-alt"> <span> Logo</span></i></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
